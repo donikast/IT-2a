@@ -20,8 +20,21 @@ public class Repository {
 		return instance;
 	}
 	
-	public boolean addUser(User user) {
-		return collection.add(user);
+	public void addUser(User user) {
+		collection.add(user);
+	}
+	
+	public User getUserByUsername(String username) {
+		for(User u:collection) {
+			if(u.getUsername().equals(username)) {
+				return u;
+			}
+		}
+		return null;
+	}
+	
+	public boolean ifExist(User user) {
+		return collection.contains(user);
 	}
 	
 }

@@ -45,23 +45,26 @@ public class RegistraionServlet extends HttpServlet {
 		if(personalName==null || personalName.isEmpty() || username==null || username.isEmpty() ||
 				password==null || password.isEmpty() || !password.equals(repeatPassword)) {
 			
-			out.print("<html><body><p>Не са въведени всички полета или паролите не съвпадат</p></body></html>");
+			out.print("<p>Не са въведени всички полета или паролите не съвпадат</p>");
 			
-			RequestDispatcher rd = request.getRequestDispatcher("RegistrationPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/RegistrationPage.jsp");
 			rd.include(request, response);
 	 
 		}
 		else {
 			User user = new User(personalName, username, password);
-			if(collection.addUser(user)) {
+			if(collection.getUserByUsername(username)==null) {
+				collection.addUser(user);
 				out.print("<html><body><p>Успешно регистриран потребител</p></body></html>");
+				response.sendRedirect("login");
 				
-				response.sendRedirect("LoginPage.jsp");
+				/*RequestDispatcher rd = request.getRequestDispatcher("/LoginPage.jsp");
+				rd.forward(request, response);*/
 			}
 			else {
 				out.print("<html><body><p>Потребителското име вече е заето</p></body></html>");
 				
-				RequestDispatcher rd = request.getRequestDispatcher("RegistrationPage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/RegistrationPage.jsp");
 				rd.include(request, response);
 				
 			}
