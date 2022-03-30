@@ -2,12 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="bg">
-<head>
-<meta charset="UTF-8">
-<title>Регистрация на потребител</title>
-<link rel="stylesheet" href="css/styles.css">
-</head>
+<jsp:include page="shared/head.jsp"></jsp:include>
+
 <body>
+<jsp:include page="shared/header.jsp"></jsp:include>
+
 	<div class="content">
 		<h1>Влезте в системата</h1>
 		<div class="form-container">
@@ -30,5 +29,7 @@
 
 		</div>
 	</div>
+<jsp:include page="shared/footer.jsp"></jsp:include>
+
 </body>
 </html>

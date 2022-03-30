@@ -9,6 +9,7 @@ public class Repository {
 	
 	private static Repository instance = null;
 	private static Set<User> collection;
+	static int index=1;
 	
 	private Repository() {}
 	
@@ -21,6 +22,7 @@ public class Repository {
 	}
 	
 	public void addUser(User user) {
+		user.setId(index++);
 		collection.add(user);
 	}
 	

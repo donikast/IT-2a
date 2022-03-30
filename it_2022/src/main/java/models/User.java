@@ -8,6 +8,7 @@ import java.util.Objects;
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String personalName;
 	private String username;
 	private String password;
@@ -25,9 +26,13 @@ public class User implements Serializable {
 		this.personalName = personalName;
 		this.username = username;
 		this.password = password;
-		
-		address = new Address();
+		this.jobTitle = "Не е зададен";
+		this.description = "Не е зададен";
+		this.email = "Не е зададен";
+		this.phone = "Не е зададен";
+		this.address = new Address();
 		this.itSkills = new ArrayList<Skill>();
+		this.personalSkills = new ArrayList<Skill>();
 	}
 	
 	public User(String username, String password) {
@@ -57,6 +62,71 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Skill> getItSkills() {
+		return itSkills;
+	}
+
+	public void setItSkills(List<Skill> itSkills) {
+		this.itSkills = itSkills;
+	}
+
+	public List<Skill> getPersonalSkills() {
+		return personalSkills;
+	}
+
+	public void setPersonalSkills(List<Skill> personalSkills) {
+		this.personalSkills = personalSkills;
 	}
 
 	@Override
