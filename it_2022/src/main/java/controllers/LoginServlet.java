@@ -42,11 +42,7 @@ public class LoginServlet extends HttpServlet {
 		if(collection.ifExist(user)) {
 			
 			User loggedUser = collection.getUserByUsername(username);
-			
-			request.setAttribute("loggedUser", loggedUser);
-			
-			RequestDispatcher rd = request.getRequestDispatcher("/ProfilePage.jsp");
-			rd.forward(request, response);
+			response.sendRedirect("user?id="+loggedUser.getId()+"&action=edit");
 		}
 		
 		else {
