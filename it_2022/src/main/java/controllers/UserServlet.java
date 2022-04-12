@@ -41,6 +41,12 @@ public class UserServlet extends HttpServlet {
 		User updatedUser = collection.getUserById(id);
 		
 		updatedUser.setPersonalName(request.getParameter("personal-name"));
+		updatedUser.setJobTitle(request.getParameter("job-title"));
+		updatedUser.setDescription(request.getParameter("description"));
+		updatedUser.setEmail(request.getParameter("email"));
+		updatedUser.setPhone(request.getParameter("phone"));
+		updatedUser.getAddress().setStreet(request.getParameter("street"));
+		updatedUser.getAddress().setCity(request.getParameter("city"));
 		
 		for(int i=0; i<updatedUser.getItSkills().size();i++) {
 			String skillName = request.getParameter("it-skill-name"+i);
@@ -48,7 +54,14 @@ public class UserServlet extends HttpServlet {
 			
 			int skillValue = Integer.parseInt(request.getParameter("it-skill-value"+i));
 			updatedUser.getItSkills().get(i).setSkillValue(skillValue);
+		}
+		
+		for(int j=0; j<updatedUser.getPersonalSkills().size();j++) {
+			String skillName = request.getParameter("prof-skill-name"+j);
+			updatedUser.getPersonalSkills().get(j).setSkillName(skillName);
 			
+			int skillValue = Integer.parseInt(request.getParameter("prof-skill-value"+j));
+			updatedUser.getPersonalSkills().get(j).setSkillValue(skillValue);	
 		}
 		
 		request.setAttribute("loggedUser", updatedUser);
