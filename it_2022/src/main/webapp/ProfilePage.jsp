@@ -24,6 +24,8 @@
 			</div>
 			<div class="profile-info-container">
 				<h2>Профилна информация</h2>
+				
+				<a href="user?id=<%=user.getId()%>&action=edit">Редактирай профила</a>
 				<p>Име: <%= user.getPersonalName() %></p>
 				
 <!--<jsp:getProperty property="personalName" name="loggedUser"/>-->

@@ -13,7 +13,7 @@
  -->
 
 	<%
-	User user = (User) request.getAttribute("loggedUser");
+	User user = (User) session.getAttribute("loggedUser");
 	%>
 
 	<jsp:include page="shared/header.jsp"></jsp:include>
@@ -61,8 +61,6 @@
 					i++;
 					}
 					%>
-
-
 
 				</div>
 
