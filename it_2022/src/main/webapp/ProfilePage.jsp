@@ -13,24 +13,38 @@
  -->
 
 
-<% User user = (User)request.getAttribute("loggedUser"); %>
+<% User user = (User)request.getAttribute("loggedUser"); 
+	User sessionUser = (User) session.getAttribute("loggedUser");
+
+%>
+
 
 <jsp:include page="shared/header.jsp"></jsp:include>
 
 	<div class="content">
+	<% if(request.getAttribute("isThereACookie")==null) { %>
+	<h2>Добре дошли!</h2>
+	<form action="cookie" method="post">
+	<input type="submit" value="Изключи" />
+	</form>
+	
+	<% } %>
 		<div>
 			<div class="profile-image-container">
 				<img src="images/male.svg" />
 			</div>
 			<div class="profile-info-container">
 				<h2>Профилна информация</h2>
+			 
+				<a href="user?id=<%=user.getId()%>&action=edit" id="editButton">Редактирай профила</a>
+			 
 				
-				<a href="user?id=<%=user.getId()%>&action=edit">Редактирай профила</a>
+				
 				<p>Име: <%= user.getPersonalName() %></p>
 				
 <!--<jsp:getProperty property="personalName" name="loggedUser"/>-->
 				
-				<p>Професия: <%= user.getJobTitle()  %></p>
+				<p>Професия: <%= user.getJobTitle() %></p>
 				<p>Описание: <%= user.getDescription() %> </p>
 
 			</div>
@@ -49,8 +63,6 @@
 					</div>
 				</div>
 			<%} %>
-			
-
 
 			</div>
 

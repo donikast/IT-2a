@@ -4,6 +4,8 @@
  	<nav>
  	<a href="registration">Регистрация</a>
  	<a href="login">Вход</a>
+ 	<a href="users">Потребители</a>
+ 	
  	<form action="logout" method="post">
  	<input type="submit" value="Изход" />
  	</form>

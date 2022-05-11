@@ -45,9 +45,15 @@ text-align:center;
 display:block;
  }
  
- input[type=text], input[type=password], input[type=range]  {
+ input[type=text], 
+ input[type=password], 
+ input[type=button], 
+ input[type=range], 
+ #a:link.editButton, 
+ #a:active.editButton,
+ #a:visited.editButton,
+ #a:hover.editButton  {
  width:100%;
-
  padding:12px 20px;
  margin:8px 0;
  display:inline-block;
@@ -133,4 +139,26 @@ footer {
 .profile-info-in-orange {
 	color:orange;
 	margin:10px 0 20px;
+}
+
+nav>a:link, nav>a:visited, nav>a:hover, nav>a:active, nav input[type=submit] {
+  width:auto;
+  background-color:orange;
+  color: #012e5e;
+  padding:14px 20px;
+  border-radius:4px;
+  cursor:pointer; 
+  border: none; 
+  text-decoration:none;
+  display:inline-block;
+  font-size:1em;
+  margin: 10px;
+}
+
+nav>form {
+	  display:inline-block;
+}
+
+nav {
+	padding:20px 40px;
 }

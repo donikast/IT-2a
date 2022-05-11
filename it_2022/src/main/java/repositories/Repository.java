@@ -21,6 +21,10 @@ public class Repository {
 		return instance;
 	}
 	
+		public static Set<User> getCollection() {
+		return collection;
+	}
+
 	public void addUser(User user) {
 		user.setId(index++);
 		collection.add(user);
@@ -47,5 +51,4 @@ public class Repository {
 	public boolean ifExist(User user) {
 		return collection.contains(user);
 	}
-	
 }

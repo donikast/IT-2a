@@ -20,29 +20,31 @@
 	<jsp:include page="shared/header.jsp"></jsp:include>
 
 	<div class="content">
-		<form action="user" method="post">
 		
-		<input type="hidden" name="id" value="<%= user.getId() %>" />
+		
 			<div>
 				<div class="profile-image-container">
 					<img src="images/male.svg" />
 				</div>
+				
+				<form class="edit-info">
 				<div class="profile-info-container">
 					<h2>Профилна информация</h2>
-					<p>Име:</p>
-					<input type="text" name="personal-name" value="<%=user.getPersonalName()%>">
+					<p>Име:</p>		
+					<input type="hidden" name="id" value="<%= user.getId() %>" />
 
-					<!--<jsp:getProperty property="personalName" name="loggedUser"/>-->
+					<input type="text" name="personalName" value="<%=user.getPersonalName()%>">
 
 					<p>Професия:</p>
-					<input type="text" name="job-title" value="<%=user.getJobTitle()%>">
+					<input type="text" name="jobTitle" value="<%=user.getJobTitle()%>">
 					
 					<p>Описание:
 					</p>
 					<input type="text" name="description" value="<%=user.getDescription()%>">
-					
-
+				<input type="button" onclick="editProfileInfo()" value="Запази" />
+				<span id="sussess-info"></span>
 				</div>
+				</form>
 			</div>
 			<h2>Умения</h2>
 
@@ -113,7 +115,7 @@
 			<div>
 			<input type="submit" value="Редактирай данните"/>
 </div>
-		</form>
+	
 	</div>
 	<jsp:include page="shared/footer.jsp"></jsp:include>
 

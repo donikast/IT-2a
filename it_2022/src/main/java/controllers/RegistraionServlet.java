@@ -30,17 +30,11 @@ public class RegistraionServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession(false);
-		
-		User sessionUser = (session!=null)?(User)session.getAttribute("loggedUser"):null;
-		
-		if(sessionUser!=null) {
-		response.sendRedirect("user?id="+sessionUser.getId());
-		} else {
+
 		RequestDispatcher rd = request.getRequestDispatcher("/RegistrationPage.jsp");
-		rd.forward(request, response); }
-	}
+		rd.forward(request, response); 
+		}
+	
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -62,7 +56,6 @@ public class RegistraionServlet extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/RegistrationPage.jsp");
 			rd.include(request, response);
-	 
 		}
 		else {
 			User user = new User(personalName, username, password);
@@ -85,6 +78,7 @@ public class RegistraionServlet extends HttpServlet {
 				
 				collection.addUser(user);
 				out.print("<html><body><p>Успешно регистриран потребител</p></body></html>");
+				
 				response.sendRedirect("login");
 				
 				/*RequestDispatcher rd = request.getRequestDispatcher("/LoginPage.jsp");

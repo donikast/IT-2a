@@ -4,6 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>LoggedAccess</filter-name>
+  	<display-name>LoggedAccess</display-name>
+  	<description></description>
+  	<filter-class>filters.LoggedAccess</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoggedAccess</filter-name>
+  	<url-pattern>/LoggedAccess</url-pattern>
+  </filter-mapping>
   <servlet>
   	<servlet-name>RegistraionServlet</servlet-name>
   	<display-name>RegistraionServlet</display-name>
@@ -28,4 +38,36 @@
   	<description></description>
   	<servlet-class>controllers.LoguotServlet</servlet-class>
   </servlet>
+
+  <servlet>
+  	<servlet-name>CookieServlet</servlet-name>
+  	<display-name>CookieServlet</display-name>
+  	<description></description>
+  	<servlet-class>controllers.CookieServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UsersServlet</servlet-name>
+  	<display-name>UsersServlet</display-name>
+  	<description></description>
+  	<servlet-class>controllers.UsersServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AsyncEditProfileInfoServlet</servlet-name>
+  	<display-name>AsyncEditProfileInfoServlet</display-name>
+  	<description></description>
+  	<servlet-class>controllers.AsyncEditProfileInfoServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+  	<servlet-name>CookieServlet</servlet-name>
+  	<url-pattern>/CookieServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UsersServlet</servlet-name>
+  	<url-pattern>/UsersServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AsyncEditProfileInfoServlet</servlet-name>
+  	<url-pattern>/AsyncEditProfileInfoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
