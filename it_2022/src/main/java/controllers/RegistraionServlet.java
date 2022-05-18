@@ -18,7 +18,7 @@ import models.Skill;
 import models.User;
 import repositories.Repository;
 
-@WebServlet("/registration")
+@WebServlet(urlPatterns={"/registration","/index.html","/index.jsp"})
 public class RegistraionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

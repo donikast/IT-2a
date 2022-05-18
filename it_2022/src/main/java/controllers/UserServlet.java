@@ -83,6 +83,7 @@ public class UserServlet extends HttpServlet {
 			int skillValue = Integer.parseInt(request.getParameter("prof-skill-value"+j));
 			updatedUser.getPersonalSkills().get(j).setSkillValue(skillValue);	
 		}
+		collection.updateXml();
 		
 		response.sendRedirect("user?id="+updatedUser.getId());
 		//request.setAttribute("loggedUser", updatedUser);

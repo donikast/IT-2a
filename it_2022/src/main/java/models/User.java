@@ -5,6 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="user")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -17,7 +25,13 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private Address address;
+	
+	@XmlElementWrapper(name="itSkills")
+	@XmlElement(name="skill")
 	private List<Skill> itSkills;
+	
+	@XmlElementWrapper(name="personalSkills")
+	@XmlElement(name="skill")
 	private List<Skill> personalSkills;
 	
 	public User() {}

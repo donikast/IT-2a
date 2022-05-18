@@ -33,7 +33,8 @@ public class LoggedAccess extends HttpFilter {
 		res.sendRedirect("user?id="+sessionUser.getId());
 		} else {
 		
-		chain.doFilter(request, response); }
+		chain.doFilter(request, response); 
+		}
 	}
 
 
